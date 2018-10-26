@@ -13,7 +13,7 @@ namespace Invector.CharacterController
         }
 
         public virtual void Sprint(bool value)
-        {                                   
+        {                              
             isSprinting = value;            
         }
 

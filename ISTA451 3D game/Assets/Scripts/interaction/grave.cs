@@ -6,6 +6,11 @@ using TMPro;
 public class grave : MonoBehaviour {
 	public Transform positioning;
 
+	public GameObject leftArmObj;
+	public GameObject rightArmObj;
+	public GameObject skullObj;
+	public GameObject legsObj;
+
 	public AudioSource bgmPlayer;
 	public TextMeshProUGUI message;
 	public Transform target;
@@ -28,6 +33,7 @@ public class grave : MonoBehaviour {
 				levelPassing = true;
 				if(playerInv.leftArm) {
 					StartCoroutine(putBack("put left arm back"));
+					leftArmObj.SetActive(true);
 					passLevel1.pass();
 					bgmPlayer.Play();
 					levelPassing = true;
