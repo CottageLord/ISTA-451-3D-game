@@ -32,6 +32,9 @@ public class openChest : MonoBehaviour {
 						case "left":
 							if(Input.GetKeyDown(KeyCode.F)) playerInv.leftArm = true;
 							break;
+						case "skull":
+							if(Input.GetKeyDown(KeyCode.F)) playerInv.skull = true;
+							break;
 						default:
 							break;
 					}

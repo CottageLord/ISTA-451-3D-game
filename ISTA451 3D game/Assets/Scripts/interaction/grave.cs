@@ -16,6 +16,7 @@ public class grave : MonoBehaviour {
 	public Transform target;
 	public playerInv playerInv;
 	public passLevel passLevel1;
+	public passLevel passLevel2;
 	private int interactable = 2;
 	private bool levelPassing = false;
 	private int exitZone = 5;
@@ -38,6 +39,13 @@ public class grave : MonoBehaviour {
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.leftArm = false;
+				} 
+				else if (playerInv.skull) {
+					StartCoroutine(putBack("put skull arm back"));
+					skullObj.SetActive(true);
+					passLevel2.pass();
+					levelPassing = true;
+					playerInv.skull = false;
 				} else {
 					StartCoroutine(putBack("nothing happens"));
 				}

@@ -20,7 +20,7 @@ public class skullStick : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float distance = Vector3.Distance(positioning.transform.position, target.position);
-		print(distance);
+		
 		if(distance < interactable && !said) {
 			message.text = "Press F to investigate";
 			if(Input.GetKeyDown(KeyCode.F)) {
