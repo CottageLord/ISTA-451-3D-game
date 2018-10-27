@@ -8,7 +8,6 @@ public class exit : MonoBehaviour, IPointerDownHandler {
 
 	public void OnPointerDown(PointerEventData pointerEventData)
     {
-    	print("exit");
         Application.Quit();
     }
 }
