@@ -19,7 +19,6 @@ public class fixEye : MonoBehaviour {
 	void Update () {
 		if(!eyeFixed) {
 			float distance = Vector3.Distance(transform.position, target.position);
-			print(distance);
 			if(distance < interactable && !said) {
 				message.text = "Press F to fix";
 				if(Input.GetKeyDown(KeyCode.F)) {

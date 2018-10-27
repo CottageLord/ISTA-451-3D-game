@@ -12,6 +12,8 @@ public class grave : MonoBehaviour {
 	public GameObject legsObj;
 
 	public AudioSource bgmPlayer;
+	public AudioClip bgm2;
+
 	public TextMeshProUGUI message;
 	public Transform target;
 	public playerInv playerInv;
@@ -44,6 +46,8 @@ public class grave : MonoBehaviour {
 					StartCoroutine(putBack("put skull arm back"));
 					skullObj.SetActive(true);
 					passLevel2.pass();
+					bgmPlayer.clip = bgm2;
+					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.skull = false;
 				} else {
