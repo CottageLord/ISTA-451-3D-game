@@ -5,7 +5,6 @@ using UnityEngine;
 public class passLevel : MonoBehaviour {
 	public floatObj[] rocks;
 	public GameObject invisWalls;
-	public GameObject allRocks;
 
 	public void pass() {
 		invisWalls.SetActive(false);

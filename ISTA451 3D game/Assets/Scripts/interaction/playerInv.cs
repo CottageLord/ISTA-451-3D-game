@@ -7,4 +7,6 @@ public class playerInv : MonoBehaviour {
 	public bool rightArm = false;
 	public bool skull = false;
 	public bool legs = false;
+
+	
 }

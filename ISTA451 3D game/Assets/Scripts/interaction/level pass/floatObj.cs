@@ -9,13 +9,13 @@ public class floatObj : MonoBehaviour {
 	private bool floating = false;
 	// Update is called once per frame
 	void Update() {
-		if(floating) {
+		if(self && floating) {
 			self.position += new Vector3(0f, speed, 0f);
 		}
 	}
 
 	public void floatUp() {
-		floating=true;
+		floating = true;
 		StartCoroutine(floatUpStart());
 	}
 	
