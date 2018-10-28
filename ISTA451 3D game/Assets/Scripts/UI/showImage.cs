@@ -29,7 +29,7 @@ public class showImage : MonoBehaviour {
 					keyShowing = true;
 				}
 			} else {
-				message.text = "You haven't get the item yet";
+				StartCoroutine(showMsg("You haven't get the item yet",2));
 			}
 		}
 
@@ -60,5 +60,11 @@ public class showImage : MonoBehaviour {
 		menu.SetActive(false);
 		menuShowing = false;
 		Time.timeScale = 1;
+	}
+
+	IEnumerator showMsg(string msg, int time) {
+		message.text = msg;
+		yield return new WaitForSeconds(time);
+		message.text = "";
 	}
 }

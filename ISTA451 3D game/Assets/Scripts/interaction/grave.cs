@@ -69,6 +69,13 @@ public class grave : MonoBehaviour {
 
 					StartCoroutine(putBack("you're ... almost there, \nkeep going", 5));
 
+				} else if (playerInv.legs == 4) {
+					StartCoroutine(putBack("put legs back", 2));
+					legsObj.SetActive(true);
+					//bgmPlayer.clip = bgm3;
+					//bgmPlayer.Play();
+					levelPassing = true;
+					playerInv.legs = 0;
 				} else {
 					StartCoroutine(putBack("nothing happens", 2));
 				}

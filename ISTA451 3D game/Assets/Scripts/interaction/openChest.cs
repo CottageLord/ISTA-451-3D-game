@@ -17,8 +17,9 @@ public class openChest : MonoBehaviour {
 
 	void Update() {
 		if(notOpened) {
+			if(target == null) print(gameObject.name);
 			float distance = Vector3.Distance(transform.position, target.position);
-		
+			
 			if(distance < interactable) {
 				message.text = text;
 				if(Input.GetKeyDown(KeyCode.F)) {

@@ -41,7 +41,7 @@ public class typingTextEffect : MonoBehaviour {
 			player.SetActive(true);
 			story.SetActive(false);
 			told = true;
-			Cursor.visible = false;
+			Cursor.visible = true;
 			return;
 		}
 		StartCoroutine(AnimateText());
