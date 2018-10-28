@@ -5,7 +5,7 @@ using UnityEngine;
 public class startGame : MonoBehaviour {
 
 	public typingTextEffect storyTeller;
-
+	
 	// Use this for initialization
 	void Awake () {
 		storyTeller.setStory(new string[]{"Hello there",

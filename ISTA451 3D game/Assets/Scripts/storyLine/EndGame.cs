@@ -24,9 +24,10 @@ public class EndGame : MonoBehaviour {
 	public GameObject playerBody;
 	public GameObject menuCanvas;
 	public TextMeshProUGUI endText;
+	public GameObject endSpace;
+
 	public void end() {
 		player.SetActive(false);
-		menuCanvas..SetActive(false);
 		textArray = new string[]{"I should have told you...",
 			"But...I am so sorry",
 			"I have no choice",
@@ -54,11 +55,11 @@ public class EndGame : MonoBehaviour {
 		if(endStart && Input.GetKeyDown(KeyCode.Space)) {
 			showNextEnd();
 		}
-		if(cameraFloat && EndCamera.GetComponent<Transform>().position.y < 40) {
-			EndCamera.transform.position += new Vector3(0f, 0.005f, 0f);
+		if(cameraFloat && EndCamera.GetComponent<Transform>().position.y < 60) {
+			EndCamera.transform.position += new Vector3(0f, 0.01f, 0f);
 		}
 
-		if(EndCamera.GetComponent<Transform>().position.y >= 40) {
+		if(cameraFloat && EndCamera.GetComponent<Transform>().position.y >= 20) {
 			skeleton.SetActive(true);
 			playerBody.SetActive(false);
 		}
@@ -81,7 +82,7 @@ public class EndGame : MonoBehaviour {
 	}
 	//Note that the speed you want the typewriter effect to be going at is the yield waitforseconds (in my case it's 1 letter for every      0.03 seconds, replace this with a public float if you want to experiment with speed in from the editor)
 	IEnumerator AnimateText(){
-
+		print(textArray[currentlyDisplayingText]);
 		for (int i = 0; i < (textArray[currentlyDisplayingText].Length+1); i++)
 		{
 			textBox.text = textArray[currentlyDisplayingText].Substring(0, i);
@@ -90,15 +91,17 @@ public class EndGame : MonoBehaviour {
 	}
 
 	void EndCameraMove() {
+		menuCanvas.SetActive(false);
 		EndCanvas.SetActive(true);
 		currentlyDisplayingText = 0;
 
-		textArray = new string[]{"Made by Yang Hu",
-			"Special thank to Drew Castalia",
+		textArray = new string[]{"",
+			"Made by \nYang Hu",
+			"Special thank to \nDrew Castalia",
 			"Thanks for playing"};
 		cameraFloat = true;
 		endStart = true;
-		StartCoroutine(AnimateText());
+		StartCoroutine(AnimateText2());
 
 	}
 
@@ -108,9 +111,21 @@ public class EndGame : MonoBehaviour {
 		//If we've reached the end of the array, do anything you want. I just restart the example text
 		if (currentlyDisplayingText>=textArray.Length) {
 			endStart = false;
+			endSpace.SetActive(false);
+			endText.gameObject.SetActive(false);
 			return;
 		}
-		StartCoroutine(AnimateText());
+		StartCoroutine(AnimateText2());
+	}
+
+	//Note that the speed you want the typewriter effect to be going at is the yield waitforseconds (in my case it's 1 letter for every      0.03 seconds, replace this with a public float if you want to experiment with speed in from the editor)
+	IEnumerator AnimateText2(){
+		print(textArray[currentlyDisplayingText]);
+		for (int i = 0; i < (textArray[currentlyDisplayingText].Length+1); i++)
+		{
+			endText.text = textArray[currentlyDisplayingText].Substring(0, i);
+			yield return new WaitForSeconds(.03f);
+		}
 	}
 
 }

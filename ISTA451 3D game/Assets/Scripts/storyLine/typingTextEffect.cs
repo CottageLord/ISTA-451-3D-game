@@ -6,19 +6,22 @@ using TMPro;
 public class typingTextEffect : MonoBehaviour {
 
 	public TextMeshProUGUI textBox;
+	public Animator playerAnim;
     //Store all your text in this string array
 	public string[] textArray;
 	public GameObject player;
 	public GameObject story;
+	public GameObject menuCanvas;
 	private bool told = false;
 
 	int currentlyDisplayingText = 0;
 	
 	public void tell () {
-		Cursor.visible = false;
+		Cursor.visible = true;
 		told = false;
 		currentlyDisplayingText = 0;
 		player.SetActive(false);
+		menuCanvas.SetActive(false);
 		story.SetActive(true);
 		StartCoroutine(AnimateText());
 	}
@@ -39,7 +42,9 @@ public class typingTextEffect : MonoBehaviour {
 		//If we've reached the end of the array, do anything you want. I just restart the example text
 		if (currentlyDisplayingText>=textArray.Length) {
 			player.SetActive(true);
+			playerAnim.SetBool("reset", true);
 			story.SetActive(false);
+			menuCanvas.SetActive(true);
 			told = true;
 			Cursor.visible = true;
 			return;
