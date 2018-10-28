@@ -13,6 +13,7 @@ public class grave : MonoBehaviour {
 	public GameObject legsObj;
 
 	public AudioSource bgmPlayer;
+	public AudioClip bgm;
 	public AudioClip bgm2;
 	public AudioClip bgm3;
 	public AudioClip bgm4;
@@ -44,11 +45,11 @@ public class grave : MonoBehaviour {
 					StartCoroutine(putBack("put left arm back", 2));
 					leftArmObj.SetActive(true);
 					passLevel1.pass();
+					bgmPlayer.clip = bgm;
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.leftArm = false;
-
-					StartCoroutine(putBack("I can't believe...that this is hanppening\nplease find the rest\nthat will be much APPRECIATED", 10));
+					StartCoroutine(putBack("I can't believe...that this is hanppening\njust follow the lights...", 6));
 
 				} else if (playerInv.skull) {
 					StartCoroutine(putBack("put skull back", 2));

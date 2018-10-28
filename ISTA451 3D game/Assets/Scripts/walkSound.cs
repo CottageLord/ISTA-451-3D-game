@@ -27,7 +27,7 @@ namespace Invector.CharacterController
 		IEnumerator PlayFootsteps() {
 			while( enabled ) {
 				float moveSpeed = walker.velocity.magnitude;
-				print(moveSpeed);
+				
 				if(walker.velocity.magnitude > 3.5) {
 					footstepInterval = 0.25f;
 				} else {

@@ -12,7 +12,7 @@ public class showImage : MonoBehaviour {
 	private bool menuShowing = false;
 	private bool keyShowing = false;
 
-	void Awake() {
+	void Start() {
 		level2key.SetActive(false);
 		menu.SetActive(false);
 	}
@@ -53,6 +53,7 @@ public class showImage : MonoBehaviour {
 		menu.SetActive(true);
 		menuShowing = true;
 		Time.timeScale = 0;
+		Cursor.lockState = CursorLockMode.None;
 
 	}
 
@@ -60,6 +61,7 @@ public class showImage : MonoBehaviour {
 		menu.SetActive(false);
 		menuShowing = false;
 		Time.timeScale = 1;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	IEnumerator showMsg(string msg, int time) {
