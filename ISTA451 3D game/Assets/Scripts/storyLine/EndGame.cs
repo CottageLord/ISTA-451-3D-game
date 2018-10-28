@@ -10,7 +10,8 @@ public class EndGame : MonoBehaviour {
 	public string[] textArray;
 	public GameObject story;
 	private bool told = true;
-
+	private bool endStart = false;
+	private bool cameraFloat = false;
 	int currentlyDisplayingText = 0;
 	
 	public TextMeshProUGUI textBox;
@@ -18,12 +19,14 @@ public class EndGame : MonoBehaviour {
 	public GameObject camera;
 
 	public GameObject EndCamera;
-
+	public GameObject EndCanvas;
 	public GameObject skeleton;
 	public GameObject playerBody;
-
+	public GameObject menuCanvas;
+	public TextMeshProUGUI endText;
 	public void end() {
 		player.SetActive(false);
+		menuCanvas..SetActive(false);
 		textArray = new string[]{"I should have told you...",
 			"But...I am so sorry",
 			"I have no choice",
@@ -48,6 +51,17 @@ public class EndGame : MonoBehaviour {
 		if(!told && Input.GetKeyDown(KeyCode.Space)) {
 			SkipToNextText();
 		}
+		if(endStart && Input.GetKeyDown(KeyCode.Space)) {
+			showNextEnd();
+		}
+		if(cameraFloat && EndCamera.GetComponent<Transform>().position.y < 40) {
+			EndCamera.transform.position += new Vector3(0f, 0.005f, 0f);
+		}
+
+		if(EndCamera.GetComponent<Transform>().position.y >= 40) {
+			skeleton.SetActive(true);
+			playerBody.SetActive(false);
+		}
 	}
 	//This is a function for a button you press to skip to the next text
 	public void SkipToNextText(){
@@ -60,6 +74,7 @@ public class EndGame : MonoBehaviour {
 			skeleton.SetActive(false);
 			playerBody.SetActive(true);
 			EndCamera.SetActive(true);
+			EndCameraMove();
 			return;
 		}
 		StartCoroutine(AnimateText());
@@ -75,7 +90,27 @@ public class EndGame : MonoBehaviour {
 	}
 
 	void EndCameraMove() {
-		
+		EndCanvas.SetActive(true);
+		currentlyDisplayingText = 0;
+
+		textArray = new string[]{"Made by Yang Hu",
+			"Special thank to Drew Castalia",
+			"Thanks for playing"};
+		cameraFloat = true;
+		endStart = true;
+		StartCoroutine(AnimateText());
+
+	}
+
+	void showNextEnd() {
+		StopAllCoroutines();
+		currentlyDisplayingText++;
+		//If we've reached the end of the array, do anything you want. I just restart the example text
+		if (currentlyDisplayingText>=textArray.Length) {
+			endStart = false;
+			return;
+		}
+		StartCoroutine(AnimateText());
 	}
 
 }
