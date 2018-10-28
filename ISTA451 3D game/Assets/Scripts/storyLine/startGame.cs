@@ -9,10 +9,13 @@ public class startGame : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		storyTeller.setStory(new string[]{"Hello there",
-			"Don't worry, you are dreaming",
-			"However, in my dream",
+			"Don't worry, you are just dreaming",
+			"However, not in your dream",
 			"...",
-			""});
+			"I have been drifting in this world for a long while",
+			"and I need some help to get out",
+			"...",
+			"You will help me, will ya?"});
 		storyTeller.tell();
 	}
 }
