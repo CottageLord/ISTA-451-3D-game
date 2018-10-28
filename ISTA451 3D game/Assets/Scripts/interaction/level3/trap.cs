@@ -10,7 +10,7 @@ public class trap : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other) {
 		player.position = respawn.position;
-		storyTeller.setStory(new string[]{"dead", "restart"});
+		storyTeller.setStory(new string[]{"No, no, no...", "This is not good."});
 		storyTeller.tell();
 	}
 }
