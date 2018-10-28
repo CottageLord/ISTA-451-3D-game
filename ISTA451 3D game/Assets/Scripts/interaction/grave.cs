@@ -49,7 +49,7 @@ public class grave : MonoBehaviour {
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.leftArm = false;
-					StartCoroutine(putBack("I can't believe...that this is hanppening\njust follow the lights...", 6));
+					StartCoroutine(putBack("Thanks god...\nnow follow the lights...", 6));
 
 				} else if (playerInv.skull) {
 					StartCoroutine(putBack("put skull back", 2));
@@ -60,7 +60,7 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.skull = false;
 
-					StartCoroutine(putBack("Fantastic...\ndon't slow down, keep going", 5));
+					StartCoroutine(putBack("Great...\ndon't slow down, keep going", 5));
 				} else if (playerInv.rightArm) {
 					StartCoroutine(putBack("put right arm back", 2));
 					rightArmObj.SetActive(true);
@@ -70,7 +70,7 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.rightArm = false;
 
-					StartCoroutine(putBack("you're ... almost there\nthanks god...", 5));
+					StartCoroutine(putBack("you're ... almost there", 5));
 
 				} else if (playerInv.legs == 4) {
 					StartCoroutine(putBack("put legs back", 2));
@@ -85,7 +85,7 @@ public class grave : MonoBehaviour {
 				}
 			}
 		}
-		else if(distance > interactable && distance < exitZone) {
+		else if(distance > interactable + 1 && distance < exitZone) {
 			levelPassing = false;
 			message.text = "";
 		}

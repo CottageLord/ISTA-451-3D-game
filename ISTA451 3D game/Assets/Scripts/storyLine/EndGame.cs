@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -12,6 +13,7 @@ public class EndGame : MonoBehaviour {
 	private bool told = true;
 	private bool endStart = false;
 	private bool cameraFloat = false;
+	private int titleScene = 1;
 	int currentlyDisplayingText = 0;
 	
 	public TextMeshProUGUI textBox;
@@ -62,6 +64,11 @@ public class EndGame : MonoBehaviour {
 		if(cameraFloat && EndCamera.GetComponent<Transform>().position.y >= 20) {
 			skeleton.SetActive(true);
 			playerBody.SetActive(false);
+		}
+
+		if(EndCamera.GetComponent<Transform>().position.y >= 60)
+		{
+			SceneManager.LoadScene(titleScene);
 		}
 	}
 	//This is a function for a button you press to skip to the next text
