@@ -7,12 +7,7 @@ public class typingTextEffect : MonoBehaviour {
 
 	public TextMeshProUGUI textBox;
     //Store all your text in this string array
-	string[] textArray = new string[]{
-		"1. Laik's super awesome custom typewriter script", 
-		"2. You can click to skip to the next text", 
-		"3.All text is stored in a single string array", 
-		"4. Ok, now we can continue",
-		"5. End Kappa"};
+	public string[] textArray;
 	public GameObject player;
 	public GameObject story;
 
@@ -20,10 +15,17 @@ public class typingTextEffect : MonoBehaviour {
 
 	int currentlyDisplayingText = 0;
 	
-	void Awake () {
+	public void tell () {
+		Cursor.visible = false;
+		told = false;
+		currentlyDisplayingText = 0;
 		player.SetActive(false);
 		story.SetActive(true);
 		StartCoroutine(AnimateText());
+	}
+
+	public void setStory(string[] givenText) {
+		textArray = givenText;
 	}
 
 	void Update() {
@@ -40,6 +42,7 @@ public class typingTextEffect : MonoBehaviour {
 			player.SetActive(true);
 			story.SetActive(false);
 			told = true;
+			Cursor.visible = true;
 			return;
 		}
 		StartCoroutine(AnimateText());
