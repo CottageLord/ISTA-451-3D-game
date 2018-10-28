@@ -10,7 +10,7 @@ public class terrainEnter : MonoBehaviour {
 
 	void Update()
     {
-    	if(!said && player.transform.position.y < -55) {
+    	if(!said && player.transform.position.y < 5) {
     		said = true;
     		cave.SetActive(false);
 	        storyTeller.setStory(new string[]{"what a charming world, right?",

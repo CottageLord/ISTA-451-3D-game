@@ -5,6 +5,7 @@ using TMPro;
 
 public class grave : MonoBehaviour {
 	public Transform positioning;
+	public EndGame gameEnd;
 
 	public GameObject leftArmObj;
 	public GameObject rightArmObj;
@@ -14,6 +15,7 @@ public class grave : MonoBehaviour {
 	public AudioSource bgmPlayer;
 	public AudioClip bgm2;
 	public AudioClip bgm3;
+	public AudioClip bgm4;
 
 	public TextMeshProUGUI message;
 
@@ -46,7 +48,7 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.leftArm = false;
 
-					StartCoroutine(putBack("good, now find the rest\nthat will be much APPRECIATED", 5));
+					StartCoroutine(putBack("I can't believe...that this is hanppening\nplease find the rest\nthat will be much APPRECIATED", 10));
 
 				} else if (playerInv.skull) {
 					StartCoroutine(putBack("put skull back", 2));
@@ -57,7 +59,7 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.skull = false;
 
-					StartCoroutine(putBack("nicely done\ngo on, young one", 5));
+					StartCoroutine(putBack("Fantastic...\ndon't slow down, keep going", 5));
 				} else if (playerInv.rightArm) {
 					StartCoroutine(putBack("put right arm back", 2));
 					rightArmObj.SetActive(true);
@@ -67,15 +69,16 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.rightArm = false;
 
-					StartCoroutine(putBack("you're ... almost there, \nkeep going", 5));
+					StartCoroutine(putBack("you're ... almost there\nthanks god...", 5));
 
 				} else if (playerInv.legs == 4) {
 					StartCoroutine(putBack("put legs back", 2));
 					legsObj.SetActive(true);
-					//bgmPlayer.clip = bgm3;
-					//bgmPlayer.Play();
+					bgmPlayer.clip = bgm4;
+					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.legs = 0;
+					gameEnd.end();
 				} else {
 					StartCoroutine(putBack("nothing happens", 2));
 				}
