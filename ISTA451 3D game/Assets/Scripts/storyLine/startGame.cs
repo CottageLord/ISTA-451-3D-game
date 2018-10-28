@@ -8,6 +8,7 @@ public class startGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		storyTeller.setStory(new string[]{"hello"});
 		storyTeller.tell();
 	}
 }

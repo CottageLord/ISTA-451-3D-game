@@ -10,7 +10,6 @@ public class typingTextEffect : MonoBehaviour {
 	public string[] textArray;
 	public GameObject player;
 	public GameObject story;
-
 	private bool told = false;
 
 	int currentlyDisplayingText = 0;
@@ -42,7 +41,7 @@ public class typingTextEffect : MonoBehaviour {
 			player.SetActive(true);
 			story.SetActive(false);
 			told = true;
-			Cursor.visible = true;
+			Cursor.visible = false;
 			return;
 		}
 		StartCoroutine(AnimateText());

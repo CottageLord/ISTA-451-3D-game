@@ -16,13 +16,12 @@ public class grave : MonoBehaviour {
 	public AudioClip bgm3;
 
 	public TextMeshProUGUI message;
+
 	public Transform target;
 	public playerInv playerInv;
 	public passLevel passLevel1;
 	public passLevel passLevel2;
 	public passLevel passLevel3;
-
-	public typingTextEffect storyTeller;
 
 	private int interactable = 2;
 	private bool levelPassing = false;
@@ -40,20 +39,17 @@ public class grave : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.F)) {
 				levelPassing = true;
 				if (playerInv.leftArm) {
-					StartCoroutine(putBack("put left arm back"));
+					StartCoroutine(putBack("put left arm back", 2));
 					leftArmObj.SetActive(true);
 					passLevel1.pass();
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.leftArm = false;
 
-					storyTeller.setStory(new string[]{"good", 
-						"now find the rest", 
-						"that will be much APPRECIATED"});
-					storyTeller.tell();
+					StartCoroutine(putBack("good, now find the rest\nthat will be much APPRECIATED", 5));
 
 				} else if (playerInv.skull) {
-					StartCoroutine(putBack("put skull arm back"));
+					StartCoroutine(putBack("put skull back", 2));
 					skullObj.SetActive(true);
 					passLevel2.pass();
 					bgmPlayer.clip = bgm2;
@@ -61,11 +57,9 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.skull = false;
 
-					storyTeller.setStory(new string[]{"nicely done", 
-						"go on, young one"});
-					storyTeller.tell();
+					StartCoroutine(putBack("nicely done\ngo on, young one", 5));
 				} else if (playerInv.rightArm) {
-					StartCoroutine(putBack("put skull arm back"));
+					StartCoroutine(putBack("put right arm back", 2));
 					rightArmObj.SetActive(true);
 					passLevel3.pass();
 					bgmPlayer.clip = bgm3;
@@ -73,11 +67,10 @@ public class grave : MonoBehaviour {
 					levelPassing = true;
 					playerInv.rightArm = false;
 
-					storyTeller.setStory(new string[]{"you're ... almost there", 
-						"keep going"});
-					storyTeller.tell();
+					StartCoroutine(putBack("you're ... almost there, \nkeep going", 5));
+
 				} else {
-					StartCoroutine(putBack("nothing happens"));
+					StartCoroutine(putBack("nothing happens", 2));
 				}
 			}
 		}
@@ -87,9 +80,9 @@ public class grave : MonoBehaviour {
 		}
 	}
 
-	IEnumerator putBack(string msg) {
+	IEnumerator putBack(string msg, int time) {
 		message.text = msg;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(time);
 		message.text = "";
 		levelPassing = false;
 	}

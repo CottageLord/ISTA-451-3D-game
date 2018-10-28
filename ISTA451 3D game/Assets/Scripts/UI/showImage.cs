@@ -29,7 +29,7 @@ public class showImage : MonoBehaviour {
 					keyShowing = true;
 				}
 			} else {
-				//message.text = "You haven't get the item yet";
+				message.text = "You haven't get the item yet";
 			}
 		}
 
