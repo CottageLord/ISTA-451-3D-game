@@ -13,12 +13,17 @@ public class grave : MonoBehaviour {
 
 	public AudioSource bgmPlayer;
 	public AudioClip bgm2;
+	public AudioClip bgm3;
 
 	public TextMeshProUGUI message;
 	public Transform target;
 	public playerInv playerInv;
 	public passLevel passLevel1;
 	public passLevel passLevel2;
+	public passLevel passLevel3;
+
+	public typingTextEffect storyTeller;
+
 	private int interactable = 2;
 	private bool levelPassing = false;
 	private int exitZone = 5;
@@ -34,15 +39,20 @@ public class grave : MonoBehaviour {
 			message.text = "Press F to investigate";
 			if(Input.GetKeyDown(KeyCode.F)) {
 				levelPassing = true;
-				if(playerInv.leftArm) {
+				if (playerInv.leftArm) {
 					StartCoroutine(putBack("put left arm back"));
 					leftArmObj.SetActive(true);
 					passLevel1.pass();
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.leftArm = false;
-				} 
-				else if (playerInv.skull) {
+
+					storyTeller.setStory(new string[]{"good", 
+						"now find the rest", 
+						"that will be much APPRECIATED"});
+					storyTeller.tell();
+
+				} else if (playerInv.skull) {
 					StartCoroutine(putBack("put skull arm back"));
 					skullObj.SetActive(true);
 					passLevel2.pass();
@@ -50,6 +60,22 @@ public class grave : MonoBehaviour {
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.skull = false;
+
+					storyTeller.setStory(new string[]{"nicely done", 
+						"go on, young one"});
+					storyTeller.tell();
+				} else if (playerInv.rightArm) {
+					StartCoroutine(putBack("put skull arm back"));
+					rightArmObj.SetActive(true);
+					passLevel3.pass();
+					bgmPlayer.clip = bgm3;
+					bgmPlayer.Play();
+					levelPassing = true;
+					playerInv.rightArm = false;
+
+					storyTeller.setStory(new string[]{"you're ... almost there", 
+						"keep going"});
+					storyTeller.tell();
 				} else {
 					StartCoroutine(putBack("nothing happens"));
 				}
