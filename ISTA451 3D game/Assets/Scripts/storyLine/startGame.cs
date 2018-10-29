@@ -12,7 +12,7 @@ public class startGame : MonoBehaviour {
 			"Don't worry, you are just\ndreaming",
 			"However, not in your dream",
 			"...",
-			"I have been drifting in this\nworld for a long while",
+			"I have been drifting in this\ndream for a long while",
 			"and I need some help\nto get out",
 			"...",
 			"You will help me\nwill ya?"});

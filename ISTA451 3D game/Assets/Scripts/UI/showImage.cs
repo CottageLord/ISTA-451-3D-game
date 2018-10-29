@@ -53,6 +53,7 @@ public class showImage : MonoBehaviour {
 		menu.SetActive(true);
 		menuShowing = true;
 		Time.timeScale = 0;
+		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
 
 	}
@@ -61,6 +62,7 @@ public class showImage : MonoBehaviour {
 		menu.SetActive(false);
 		menuShowing = false;
 		Time.timeScale = 1;
+		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 

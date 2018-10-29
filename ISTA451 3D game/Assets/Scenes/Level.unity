@@ -36648,7 +36648,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 2aaf83f128e5bc941a13c421bce71d25, type: 2}
   m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -57682,7 +57682,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 3b243877aaf00f54eb5414997b0a9ec1, type: 2}
   m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -57716,7 +57716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c71cf2fc32cc84799a238ec2626203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNum: 1
+  sceneNum: 0
 --- !u!1 &1209020948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532667504379520, guid: dbbffa6287a94b24c80e0839e6696216,
@@ -65659,7 +65659,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.9
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 2}
       propertyPath: m_LocalPosition.y
@@ -65667,7 +65667,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -41.7
+      value: -31.29
       objectReference: {fileID: 0}
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 2}
       propertyPath: m_LocalRotation.x
