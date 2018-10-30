@@ -45,7 +45,6 @@ public class showImage : MonoBehaviour {
 					activeMenu();
 				}
 			}
-			
 		}
 	}
 

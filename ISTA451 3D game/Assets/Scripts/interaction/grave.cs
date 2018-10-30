@@ -49,7 +49,7 @@ public class grave : MonoBehaviour {
 					bgmPlayer.Play();
 					levelPassing = true;
 					playerInv.leftArm = false;
-					StartCoroutine(putBack("Thanks god...\nnow follow the lights...", 6));
+					StartCoroutine(putBack("now follow the lights...\nThere are 3 more", 6));
 
 				} else if (playerInv.skull) {
 					StartCoroutine(putBack("put skull back", 2));

@@ -27,6 +27,7 @@ public class EndGame : MonoBehaviour {
 	public GameObject menuCanvas;
 	public TextMeshProUGUI endText;
 	public GameObject endSpace;
+	public GameObject EndBtn;
 
 	public void end() {
 		player.SetActive(false);
@@ -100,6 +101,7 @@ public class EndGame : MonoBehaviour {
 	void EndCameraMove() {
 		menuCanvas.SetActive(false);
 		EndCanvas.SetActive(true);
+		EndBtn.SetActive(false);
 		currentlyDisplayingText = 0;
 
 		textArray = new string[]{"",
@@ -120,6 +122,9 @@ public class EndGame : MonoBehaviour {
 			endStart = false;
 			endSpace.SetActive(false);
 			endText.gameObject.SetActive(false);
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			EndBtn.SetActive(true);
 			return;
 		}
 		StartCoroutine(AnimateText2());
